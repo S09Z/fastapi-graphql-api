@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends
+from src.models.User import User
 from src.prisma import prisma
 from src.utils.auth import JWTBearer, decodeJWT
 
@@ -8,8 +9,7 @@ router = APIRouter()
 
 @router.get("/users/", tags=["users"])
 async def read_users():
-    users = await prisma.user.find_many()
-    print("users", users)
+    users: List[User] = await prisma.user.find_many()
 
     for user in users:
         del user.password
