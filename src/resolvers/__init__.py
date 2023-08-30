@@ -1,5 +1,5 @@
-from fastapi import APIRouter
-from src.apis.auth import router as authRouter
-apis = APIRouter()
-apis.include_router(authRouter)
-__all__ = ["apis"]
+from src.resolvers.users import Query, Mutation
+import strawberry
+
+
+schema = strawberry.Schema(query=Query, mutation=Mutation)
