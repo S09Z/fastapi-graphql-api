@@ -1,8 +1,14 @@
 env
 venv/
-.env
 .idea/
 __pycache__
 *.sqlite3
 .pytest_cache/
 test.db
+**/.env
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+.pnp.*
+cache
